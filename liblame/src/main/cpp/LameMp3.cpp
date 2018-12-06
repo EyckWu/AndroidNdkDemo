@@ -3,18 +3,18 @@
 //
 #include <jni.h>
 #include <string>
-#include "com_eyckwu_androidmp3_utils_LameMp3.h"
+#include "com_eyckwu_liblame_LameMp3.h"
 #include "lamemp3/lame.h"
 
 extern "C"{
     /*
-     * Class:     com_eyckwu_androidmp3_utils_LameMp3
+     * Class:     com_eyckwu_liblame_LameMp3
      * Method:    init
      * Signature: (Ljava/lang/String;IIILjava/lang/String;)I
      */
     static lame_global_flags *glf = NULL;
 
-    JNIEXPORT jint JNICALL Java_com_eyckwu_androidmp3_utils_LameMp3_init
+    JNIEXPORT jint JNICALL Java_com_eyckwu_liblame_LameMp3_init
             (JNIEnv *env, jobject cls, jstring pcmPath, jint audioChannels, jint bitRate, jint sampleRate, jstring mp3Path){
         if (glf != NULL) {
             lame_close(glf);
@@ -30,23 +30,33 @@ extern "C"{
     }
 
     /*
-     * Class:     com_eyckwu_androidmp3_utils_LameMp3
+     * Class:     com_eyckwu_liblame_LameMp3
      * Method:    encode
      * Signature: ()V
      */
-    JNIEXPORT void JNICALL Java_com_eyckwu_androidmp3_utils_LameMp3_encode
+    JNIEXPORT void JNICALL Java_com_eyckwu_liblame_LameMp3_encode
             (JNIEnv *, jobject){
 
     }
 
     /*
-     * Class:     com_eyckwu_androidmp3_utils_LameMp3
+     * Class:     com_eyckwu_liblame_LameMp3
      * Method:    destroy
      * Signature: ()V
      */
-    JNIEXPORT void JNICALL Java_com_eyckwu_androidmp3_utils_LameMp3_destroy
+    JNIEXPORT void JNICALL Java_com_eyckwu_liblame_LameMp3_destroy
             (JNIEnv *, jobject){
 
+    }
+
+    /*
+     * Class:     com_eyckwu_liblame_LameMp3
+     * Method:    getVersion
+     * Signature: ()Ljava/lang/String;
+     */
+    JNIEXPORT jstring JNICALL Java_com_eyckwu_liblame_LameMp3_getVersion
+            (JNIEnv *env, jobject obj){
+        return env->NewStringUTF(get_lame_version());
     }
 }
 

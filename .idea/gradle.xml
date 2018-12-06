@@ -9,7 +9,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/androidmp3" />
-            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/av" />
+            <option value="$PROJECT_DIR$/libffmpeg" />
+            <option value="$PROJECT_DIR$/liblame" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
